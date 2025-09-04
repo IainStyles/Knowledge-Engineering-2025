@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+Assessment/primekg/
+kb-book/Part2/HALD_Dataset/
+
+kb-book/.DS_Store
+kb-book/_build/
+.DS_Store
