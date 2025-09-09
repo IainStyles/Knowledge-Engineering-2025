@@ -1,0 +1,4 @@
+#!/bin/sh
+outfile="../PDF/""$1"
+outfile=$(sed -e s/'.md'/'.pdf'/g <<<"$outfile")
+pandoc "$1" -o "$outfile" --from markdown --template ~/.local/share/pandoc/templates/eisvogel --listings --mathml
