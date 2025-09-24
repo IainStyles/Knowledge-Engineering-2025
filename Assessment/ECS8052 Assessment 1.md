@@ -16,7 +16,7 @@
 
 ## Assignment Brief
 
-In this assignment you will complete the first part of a project in which you will apply the techniques studied in the course to the *OREGANO Knowledge Graph*. This graph is designed to support *drug repurposing*. That is, It contains information about thousands of diseases, their effects, their genetic associations, and the drugs that can be used to treat them. OREGANO is [fully described in a recent paper by Boudin et al](https://www.nature.com/articles/s41597-023-02757-0)] and also at the [associated git repository](https://gitub.u-bordeaux.fr/erias/oregano). You should familiarise yourself with the main concepts described in the paper and on the website. *You are not expected to understand all of the biological details*.
+In this assignment you will complete the first part of a project in which you will apply the techniques studied in the course to the *OREGANO Knowledge Graph*. This graph is designed to support *drug repurposing*. That is, it contains information about thousands of diseases, their effects, their genetic associations, and the drugs that can be used to treat them. OREGANO is [fully described in a recent paper by Boudin et al (https://www.nature.com/articles/s41597-023-02757-0)](https://www.nature.com/articles/s41597-023-02757-0) and also at the [associated git repository(https://gitub.u-bordeaux.fr/erias/oregano)](https://gitub.u-bordeaux.fr/erias/oregano). You should familiarise yourself with the main concepts described in the paper and on the website. *You are not expected to understand all of the biological details*.
 
 ### Getting started
 
@@ -35,7 +35,7 @@ In this first part of the assignment you will explore some basic properties of t
 2. How many different types of nodes are there, and how many of each type are there? **[10 marks]**
 3. Produce a table that shows how often each type of node is in each type of relation. **[10 marks]**
 4. Construct and visualise an ontology for the graph that shows the different *types* of nodes and the relations between them. All nodes and edges should be clearly labelled. **[20 marks]**
-5. Model the ontology using first order logic, defining a predicate for each of the relations, specififying the domain of the variables, and using the statistics derived in part 3 to select the appropriate quantifier. **[20 marks]**
+5. Model the ontology using first order logic, defining a predicate for each of the relations, specififying the domain of the variables, and using the statistics derived in parts 1-3 to select the appropriate quantifier. **[20 marks]**
 6. Construct and visualise the Knowledge Graph. Comment ony any notable features that can be seen in the visualisation. **[30 marks]**
 
 *If you use a procedure that requires a random seed, you must use your student number as the random seed. Your code should give the same results each time it runs.*
