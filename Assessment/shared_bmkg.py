@@ -6,11 +6,9 @@ import subprocess
 import tarfile
 import time
 
-import gravis as gv
-import igraph as ig
 import pandas as pd
 import requests
-from tqdm.notebook import tqdm
+
 
 
 # Web retrieval and validation
