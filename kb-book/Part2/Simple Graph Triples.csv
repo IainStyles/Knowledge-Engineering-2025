@@ -1,0 +1,58 @@
+EEECS,offers_programme,MSc Artificial Intelligence
+EEECS,offers_programme,MSc Cyber Security
+Math and Physics,offers_programme,MSc Data Analytics and AI
+MSc Artificial Intelligence,has_module,Introduction to AI
+MSc Artificial Intelligence,has_module,Machine Learning
+MSc Artificial Intelligence,has_module,Knowledge Engineering
+MSc Artificial Intelligence,has_module,Computer Vision
+MSc Artificial Intelligence,has_module,Natural Language Processing
+MSc Artificial Intelligence,has_module,AI for Cyber Security
+MSc Artificial Intelligence,has_module,AI for Health
+MSc Cyber Security,has_module,AI for Cyber Security
+MSc Cyber Security,has_module,Malware Detection
+MSc Cyber Security,has_module,Cryptography
+MSc Cyber Security,has_module,Penetration Testing
+MSc Cyber Security,has_module,Secure Information Systems
+MSc Cyber Security,has_module,Hardware Security
+MSc Cyber Security,has_module,Machine Learning
+MSc Data Analytics and AI,has_module,Computer Vision
+MSc Data Analytics and AI,has_module,Natural Language Processing
+MSc Data Analytics and AI,has_module,Statistics
+MSc Data Analytics and AI,has_module,Data Visualisation
+MSc Data Analytics and AI,has_module,Machine Learning
+MSc Data Analytics and AI,has_module,Databases
+MSc Data Analytics and AI,has_module,Data Engineering
+MSc Artificial Intelligence,is_directed_by,Dr Barry Devereux
+MSc Cyber Security,is_directed_by,Dr Ihsen Alouani
+MSc Data Analytics and AI,is_directed_by,Dr Lu Bai
+Introduction to AI,is_taught_by,Dr Lu Bai
+Machine Learning,is_taught_by,Prof Hui Wang
+Knowledge Engineering,is_taught_by,Prof Iain Styles
+Computer Vision,is_taught_by,Dr Yang Hua
+Natural Language Processing,is_taught_by,Dr Barry Devereux
+AI for Cyber Security,is_taught_by,Dr Ihsen Alouani
+AI for Health,is_taught_by,Dr Reza Rafiee
+Malware Detection,is_taught_by,Dr Niall McLaughlin
+Cryptography,is_taught_by,Dr Ciara Rafferty
+Penetration Testing,is_taught_by,Dr Ayesha Khalid
+Secure Information Systems,is_taught_by,Dr Amy Liu
+Hardware Security,is_taught_by,Prof Maire O'Neill
+Statistics,is_taught_by,Dr Lisa McFetridge
+Data Visualisation,is_taught_by,Dr Hannah Mitchell
+Databases,is_taught_by,Dr Neil Anderson
+Data Engineering,is_taught_by,Dr Chao Tian
+Alan Turing,is_enrolled_in,MSc Artificial Intelligence
+John McCarthy,is_enrolled_in,MSc Artificial Intelligence
+Marvin Minsky,is_enrolled_in,MSc Artificial Intelligence
+Geoffrey Hinton,is_enrolled_in,MSc Artificial Intelligence
+Demis Hassabis,is_enrolled_in,MSc Artificial Intelligence
+Ronald Rivest,is_enrolled_in,MSc Cyber Security
+Martin Hellman,is_enrolled_in,MSc Cyber Security
+Whitfield Diffie,is_enrolled_in,MSc Cyber Security
+Gilles Brassard,is_enrolled_in,MSc Cyber Security
+Peter Shor,is_enrolled_in,MSc Cyber Security
+John von Neumann,is_enrolled_in,MSc Data Analytics and AI
+Norbert Wiener,is_enrolled_in,MSc Data Analytics and AI
+John Tukey,is_enrolled_in,MSc Data Analytics and AI
+Edgar Codd,is_enrolled_in,MSc Data Analytics and AI
+Andrew Ng,is_enrolled_in,MSc Data Analytics and AI
