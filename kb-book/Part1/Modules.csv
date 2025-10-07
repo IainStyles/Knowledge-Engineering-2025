@@ -1,0 +1,17 @@
+id,module_title,module_id
+mod01,Introduction to AI,ECS8050
+mod02,Machine Learning,ECS8051
+mod03,Knowledge Engineering,ECS8052
+mod04,Computer Vision,ECS8053
+mod05,Natural Language Processing,ECS8054
+mod06,AI for Cyber Security,ECS8055
+mod07,AI for Health,ECS8056
+mod08,Malware Detection,ECS8057
+mod09,Cryptography,ECS8058
+mod10,Penetration Testing,ECS8059
+mod11,Secure Information Systems,ECS8060
+mod12,Hardware Security,ECS8061
+mod13,Statistics,ECS8062
+mod14,Data Visualisation,ECS8063
+mod15,Databases,ECS8064
+mod16,Data Engineering,ECS8065
