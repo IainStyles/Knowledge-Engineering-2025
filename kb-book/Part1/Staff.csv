@@ -1,66 +1,18 @@
-Dr Barry Devereux,,
-Dr Ihsen Alouani,,
-Dr Lu Bai,,
-Prof Hui Wang,,
-Prof Iain Styles,,
-Dr Yang Hua,,
-Dr Barry Devereux,,
-Dr Reza Rafiee,,
-Dr Niall McLaughlin,,
-Dr Ciara Rafferty,,
-Dr Ayesha Khalid,,
-Dr Amy Liu,,
-Prof Maire O'Neill,,
-Dr Lisa McFetridge,,
-Dr Hannah Mitchell,,
-Dr Neil Anderson,,
-Dr Chao Tian,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-id,person_name,person_id
-sta01,Dr Barry Devereux,123456
-sta02,Dr Ihsen Alouani,123457
-sta03,Dr Lu Bai,123458
-sta04,Prof Hui Wang,123459
-sta05,Prof Iain Styles,123460
-sta06,Dr Yang Hua,123461
-sta07,Dr Reza Rafiee,123463
-sta08,Dr Niall McLaughlin,123464
-sta09,Dr Ciara Rafferty,123465
-sta10,Dr Ayesha Khalid,123466
-sta11,Dr Amy Liu,123467
-sta12,Prof Maire O'Neill,123468
-sta13,Dr Lisa McFetridge,123469
-sta14,Dr Hannah Mitchell,123470
-sta15,Dr Neil Anderson,123471
-sta16,Dr Chao Tian,123472
+name,person_name,person_id
+sta01,Dr Barry Devereux,12345
+sta02,Dr Ihsen Alouani,12346
+sta03,Dr Lu Bai,12347
+sta04,Prof Hui Wang,12348
+sta05,Prof Iain Styles,12349
+sta06,Dr Yang Hua,12350
+sta07,Dr Barry Devereux,12351
+sta08,Dr Reza Rafiee,12352
+sta09,Dr Niall McLaughlin,12353
+sta10,Dr Ciara Rafferty,12354
+sta11,Dr Ayesha Khalid,12355
+sta12,Dr Amy Liu,12356
+sta13,Prof Maire O'Neill,12357
+sta14,Dr Lisa McFetridge,12358
+sta15,Dr Hannah Mitchell,12359
+sta16,Dr Neil Anderson,12360
+sta17,Dr Chao Tian,12361
