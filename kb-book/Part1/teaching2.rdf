@@ -33,6 +33,11 @@
   <rdfs:range rdf:resource="#Program"/>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#employed_by">
+  <rdfs:domain rdf:resource="#Staff"/>
+  <rdfs:range rdf:resource="#School"/>
+</owl:ObjectProperty>
+
 <owl:DatatypeProperty rdf:about="#school_name">
   <rdfs:domain rdf:resource="#School"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -79,15 +84,15 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Staff">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Program">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Module">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Staff">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -100,108 +105,6 @@
   <offers_programme rdf:resource="#pro01"/>
   <offers_programme rdf:resource="#pro02"/>
   <school_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EEECS</school_name>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sch02">
-  <rdf:type rdf:resource="#School"/>
-  <offers_programme rdf:resource="#pro03"/>
-  <school_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maths and Physics</school_name>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta01">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Barry Devereux</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta02">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ihsen Alouani</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12346</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta03">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Lu Bai</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12347</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta04">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Hui Wang</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12348</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta05">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Iain Styles</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12349</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta06">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Yang Hua</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12350</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta07">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Reza Rafiee</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12352</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta08">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Niall McLaughlin</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12353</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta09">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ciara Rafferty</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12354</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta10">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ayesha Khalid</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12355</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta11">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Amy Liu</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12356</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta12">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Maire O'Neill</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12357</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta13">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Lisa McFetridge</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12358</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta14">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Hannah Mitchell</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12359</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta15">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Neil Anderson</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12360</person_id>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#sta16">
-  <rdf:type rdf:resource="#Staff"/>
-  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Chao Tian</person_name>
-  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12361</person_id>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#pro01">
@@ -234,6 +137,12 @@
   <program_length rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</program_length>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#sch02">
+  <rdf:type rdf:resource="#School"/>
+  <offers_programme rdf:resource="#pro03"/>
+  <school_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maths and Physics</school_name>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#pro03">
   <rdf:type rdf:resource="#Program"/>
   <has_module rdf:resource="#mod04"/>
@@ -247,6 +156,118 @@
   <program_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MSc Data Analytics and AI</program_title>
   <program_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MAP001</program_id>
   <program_length rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</program_length>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta01">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Barry Devereux</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta02">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ihsen Alouani</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12346</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta03">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Lu Bai</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12347</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta04">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Hui Wang</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12348</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta05">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Iain Styles</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12349</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta06">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Yang Hua</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12350</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta07">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Reza Rafiee</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12352</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta08">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Niall McLaughlin</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12353</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta09">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ciara Rafferty</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12354</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta10">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Ayesha Khalid</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12355</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta11">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Amy Liu</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12356</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta12">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prof Maire O'Neill</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12357</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta13">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch02"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Lisa McFetridge</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12358</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta14">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch02"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Hannah Mitchell</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12359</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta15">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Neil Anderson</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12360</person_id>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sta16">
+  <rdf:type rdf:resource="#Staff"/>
+  <employed_by rdf:resource="#sch01"/>
+  <person_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr Chao Tian</person_name>
+  <person_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12361</person_id>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#mod01">
