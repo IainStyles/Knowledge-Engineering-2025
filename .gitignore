@@ -214,3 +214,11 @@ kb-book/_build/
 kb-book/PDF/
 kb-book/Part1/anaconda_projects/db/project_filebrowser.db
 Assessment/oregano/
+kb-book/Part1/HALD_Dataset/Aging_Biomarkers.json
+kb-book/Part1/HALD_Dataset/Entity_info.json
+kb-book/Part1/HALD_Dataset/Literature_Info.json
+kb-book/Part1/HALD_Dataset/Longevity_Biomarkers.json
+.gitignore
+.gitignore
+kb-book/Part1/HALD_Dataset/Relation_Info.json
+kb-book/.vscode/launch.json
