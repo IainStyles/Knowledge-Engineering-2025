@@ -222,3 +222,5 @@ kb-book/Part1/HALD_Dataset/Longevity_Biomarkers.json
 .gitignore
 kb-book/Part1/HALD_Dataset/Relation_Info.json
 kb-book/.vscode/launch.json
+kb-book/Part1/HALD.rdf
+kb-book/Part1/nx.html
