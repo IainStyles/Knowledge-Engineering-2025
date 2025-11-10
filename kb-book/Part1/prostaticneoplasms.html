@@ -1,0 +1,273 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "CCND1", "label": "CCND1", "shape": "dot"}, {"color": "#97c2fc", "id": "Prostatitis", "label": "Prostatitis", "shape": "dot"}, {"color": "#97c2fc", "id": "CCR5", "label": "CCR5", "shape": "dot"}, {"color": "#97c2fc", "id": "Bone Diseases, Metabolic", "label": "Bone Diseases, Metabolic", "shape": "dot"}, {"color": "#97c2fc", "id": "Respiratory Tract Infections", "label": "Respiratory Tract Infections", "shape": "dot"}, {"color": "#97c2fc", "id": "SATB1", "label": "SATB1", "shape": "dot"}, {"color": "#97c2fc", "id": "Obesity", "label": "Obesity", "shape": "dot"}, {"color": "#97c2fc", "id": "KLK3", "label": "KLK3", "shape": "dot"}, {"color": "#97c2fc", "id": "Cutaneous Fistula", "label": "Cutaneous Fistula", "shape": "dot"}, {"color": "#97c2fc", "id": "Carcinogenesis", "label": "Carcinogenesis", "shape": "dot"}, {"color": "#97c2fc", "id": "Respiratory Distress Syndrome", "label": "Respiratory Distress Syndrome", "shape": "dot"}, {"color": "#97c2fc", "id": "KL", "label": "KL", "shape": "dot"}, {"color": "#97c2fc", "id": "IGFBP2", "label": "IGFBP2", "shape": "dot"}, {"color": "#97c2fc", "id": "Neoplasms", "label": "Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "Muscular Atrophy", "label": "Muscular Atrophy", "shape": "dot"}, {"color": "#97c2fc", "id": "HOXC13", "label": "HOXC13", "shape": "dot"}, {"color": "#97c2fc", "id": "Urinary Incontinence", "label": "Urinary Incontinence", "shape": "dot"}, {"color": "#97c2fc", "id": "PER2", "label": "PER2", "shape": "dot"}, {"color": "#97c2fc", "id": "AMACR", "label": "AMACR", "shape": "dot"}, {"color": "#97c2fc", "id": "Urinary Bladder Neoplasms", "label": "Urinary Bladder Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "NPEPPS", "label": "NPEPPS", "shape": "dot"}, {"color": "#97c2fc", "id": "Fat Necrosis", "label": "Fat Necrosis", "shape": "dot"}, {"color": "#97c2fc", "id": "GLI1", "label": "GLI1", "shape": "dot"}, {"color": "#97c2fc", "id": "ADIPOQ", "label": "ADIPOQ", "shape": "dot"}, {"color": "#97c2fc", "id": "Glucose Metabolism Disorders", "label": "Glucose Metabolism Disorders", "shape": "dot"}, {"color": "#97c2fc", "id": "INHBE", "label": "INHBE", "shape": "dot"}, {"color": "#97c2fc", "id": "Heart Failure", "label": "Heart Failure", "shape": "dot"}, {"color": "#97c2fc", "id": "rs138213197", "label": "rs138213197", "shape": "dot"}, {"color": "#97c2fc", "id": "GRHL2", "label": "GRHL2", "shape": "dot"}, {"color": "#97c2fc", "id": "NOTCH1", "label": "NOTCH1", "shape": "dot"}, {"color": "#97c2fc", "id": "Skin Diseases", "label": "Skin Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Urinary Bladder Neck Obstruction", "label": "Urinary Bladder Neck Obstruction", "shape": "dot"}, {"color": "#97c2fc", "id": "SPON2", "label": "SPON2", "shape": "dot"}, {"color": "#97c2fc", "id": "SPOP", "label": "SPOP", "shape": "dot"}, {"color": "#97c2fc", "id": "rs1801195", "label": "rs1801195", "shape": "dot"}, {"color": "#97c2fc", "id": "SSX2", "label": "SSX2", "shape": "dot"}, {"color": "#97c2fc", "id": "Neoplasm Metastasis", "label": "Neoplasm Metastasis", "shape": "dot"}, {"color": "#97c2fc", "id": "TP53", "label": "TP53", "shape": "dot"}, {"color": "#97c2fc", "id": "Leukoencephalopathies", "label": "Leukoencephalopathies", "shape": "dot"}, {"color": "#97c2fc", "id": "Cardiovascular Diseases", "label": "Cardiovascular Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "PTEN", "label": "PTEN", "shape": "dot"}, {"color": "#97c2fc", "id": "Urinary Bladder Diseases", "label": "Urinary Bladder Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Oculocerebrorenal Syndrome", "label": "Oculocerebrorenal Syndrome", "shape": "dot"}, {"color": "#97c2fc", "id": "AR", "label": "AR", "shape": "dot"}, {"color": "#97c2fc", "id": "Glucose", "label": "Glucose", "shape": "dot"}, {"color": "#97c2fc", "id": "FOXO1", "label": "FOXO1", "shape": "dot"}, {"color": "#97c2fc", "id": "Diabetes Mellitus", "label": "Diabetes Mellitus", "shape": "dot"}, {"color": "#97c2fc", "id": "GSTP1", "label": "GSTP1", "shape": "dot"}, {"color": "#97c2fc", "id": "Carcinoma, Hepatocellular", "label": "Carcinoma, Hepatocellular", "shape": "dot"}, {"color": "#97c2fc", "id": "Lung Neoplasms", "label": "Lung Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "ATF3", "label": "ATF3", "shape": "dot"}, {"color": "#97c2fc", "id": "Postpartum Hemorrhage", "label": "Postpartum Hemorrhage", "shape": "dot"}, {"color": "#97c2fc", "id": "HIV Infections", "label": "HIV Infections", "shape": "dot"}, {"color": "#97c2fc", "id": "Periodontitis", "label": "Periodontitis", "shape": "dot"}, {"color": "#97c2fc", "id": "Hypophosphatemia", "label": "Hypophosphatemia", "shape": "dot"}, {"color": "#97c2fc", "id": "Neoplasm Invasiveness", "label": "Neoplasm Invasiveness", "shape": "dot"}, {"color": "#97c2fc", "id": "CXCL12", "label": "CXCL12", "shape": "dot"}, {"color": "#97c2fc", "id": "Arthritis, Rheumatoid", "label": "Arthritis, Rheumatoid", "shape": "dot"}, {"color": "#97c2fc", "id": "MECP2", "label": "MECP2", "shape": "dot"}, {"color": "#97c2fc", "id": "Thyroid Neoplasms", "label": "Thyroid Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "CD4", "label": "CD4", "shape": "dot"}, {"color": "#97c2fc", "id": "Inflammation", "label": "Inflammation", "shape": "dot"}, {"color": "#97c2fc", "id": "Periodontal Diseases", "label": "Periodontal Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "NUAK2", "label": "NUAK2", "shape": "dot"}, {"color": "#97c2fc", "id": "GPX1", "label": "GPX1", "shape": "dot"}, {"color": "#97c2fc", "id": "PRL", "label": "PRL", "shape": "dot"}, {"color": "#97c2fc", "id": "Death", "label": "Death", "shape": "dot"}, {"color": "#97c2fc", "id": "MIR455", "label": "MIR455", "shape": "dot"}, {"color": "#97c2fc", "id": "Hyperplasia", "label": "Hyperplasia", "shape": "dot"}, {"color": "#97c2fc", "id": "SOD2", "label": "SOD2", "shape": "dot"}, {"color": "#97c2fc", "id": "Colorectal Neoplasms", "label": "Colorectal Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "CCL7", "label": "CCL7", "shape": "dot"}, {"color": "#97c2fc", "id": "Leprosy, Lepromatous", "label": "Leprosy, Lepromatous", "shape": "dot"}, {"color": "#97c2fc", "id": "Gynecomastia", "label": "Gynecomastia", "shape": "dot"}, {"color": "#97c2fc", "id": "IGFBP7", "label": "IGFBP7", "shape": "dot"}, {"color": "#97c2fc", "id": "DTX3L", "label": "DTX3L", "shape": "dot"}, {"color": "#97c2fc", "id": "Sexual Dysfunction, Physiological", "label": "Sexual Dysfunction, Physiological", "shape": "dot"}, {"color": "#97c2fc", "id": "CCL2", "label": "CCL2", "shape": "dot"}, {"color": "#97c2fc", "id": "VDR", "label": "VDR", "shape": "dot"}, {"color": "#97c2fc", "id": "Uniparental Disomy", "label": "Uniparental Disomy", "shape": "dot"}, {"color": "#97c2fc", "id": "PLAG1", "label": "PLAG1", "shape": "dot"}, {"color": "#97c2fc", "id": "Fractures, Bone", "label": "Fractures, Bone", "shape": "dot"}, {"color": "#97c2fc", "id": "Alopecia", "label": "Alopecia", "shape": "dot"}, {"color": "#97c2fc", "id": "NR2C2", "label": "NR2C2", "shape": "dot"}, {"color": "#97c2fc", "id": "Prostatic Neoplasms", "label": "Prostatic Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "PIM1", "label": "PIM1", "shape": "dot"}, {"color": "#97c2fc", "id": "Prostatic Hyperplasia", "label": "Prostatic Hyperplasia", "shape": "dot"}, {"color": "#97c2fc", "id": "WRN", "label": "WRN", "shape": "dot"}, {"color": "#97c2fc", "id": "Urolithiasis", "label": "Urolithiasis", "shape": "dot"}, {"color": "#97c2fc", "id": "Osteoporotic Fractures", "label": "Osteoporotic Fractures", "shape": "dot"}, {"color": "#97c2fc", "id": "PARP14", "label": "PARP14", "shape": "dot"}, {"color": "#97c2fc", "id": "Heart Arrest", "label": "Heart Arrest", "shape": "dot"}, {"color": "#97c2fc", "id": "PARP9", "label": "PARP9", "shape": "dot"}, {"color": "#97c2fc", "id": "Hypogonadism", "label": "Hypogonadism", "shape": "dot"}, {"color": "#97c2fc", "id": "CXCR4", "label": "CXCR4", "shape": "dot"}, {"color": "#97c2fc", "id": "Infections", "label": "Infections", "shape": "dot"}, {"color": "#97c2fc", "id": "TNF", "label": "TNF", "shape": "dot"}, {"color": "#97c2fc", "id": "Adenomatous Polyposis Coli", "label": "Adenomatous Polyposis Coli", "shape": "dot"}, {"color": "#97c2fc", "id": "Adenocarcinoma", "label": "Adenocarcinoma", "shape": "dot"}, {"color": "#97c2fc", "id": "HSD17B3", "label": "HSD17B3", "shape": "dot"}, {"color": "#97c2fc", "id": "Metabolic Syndrome", "label": "Metabolic Syndrome", "shape": "dot"}, {"color": "#97c2fc", "id": "Neutropenia", "label": "Neutropenia", "shape": "dot"}, {"color": "#97c2fc", "id": "NKX3-1", "label": "NKX3-1", "shape": "dot"}, {"color": "#97c2fc", "id": "Precancerous Conditions", "label": "Precancerous Conditions", "shape": "dot"}, {"color": "#97c2fc", "id": "IGF2", "label": "IGF2", "shape": "dot"}, {"color": "#97c2fc", "id": "Renal Insufficiency", "label": "Renal Insufficiency", "shape": "dot"}, {"color": "#97c2fc", "id": "GJB1", "label": "GJB1", "shape": "dot"}, {"color": "#97c2fc", "id": "Heart Diseases", "label": "Heart Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "FOXA1", "label": "FOXA1", "shape": "dot"}, {"color": "#97c2fc", "id": "Salivary Gland Diseases", "label": "Salivary Gland Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Hypercholesterolemia", "label": "Hypercholesterolemia", "shape": "dot"}, {"color": "#97c2fc", "id": "Spinal Cord Injuries", "label": "Spinal Cord Injuries", "shape": "dot"}, {"color": "#97c2fc", "id": "FOLH1", "label": "FOLH1", "shape": "dot"}, {"color": "#97c2fc", "id": "CYP3A4", "label": "CYP3A4", "shape": "dot"}, {"color": "#97c2fc", "id": "CTTN", "label": "CTTN", "shape": "dot"}, {"color": "#97c2fc", "id": "ARNTL", "label": "ARNTL", "shape": "dot"}, {"color": "#97c2fc", "id": "Carcinoma, Merkel Cell", "label": "Carcinoma, Merkel Cell", "shape": "dot"}, {"color": "#97c2fc", "id": "Aneuploidy", "label": "Aneuploidy", "shape": "dot"}, {"color": "#97c2fc", "id": "CLOCK", "label": "CLOCK", "shape": "dot"}, {"color": "#97c2fc", "id": "Atherosclerosis", "label": "Atherosclerosis", "shape": "dot"}, {"color": "#97c2fc", "id": "Liver Neoplasms", "label": "Liver Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "CXCL5", "label": "CXCL5", "shape": "dot"}, {"color": "#97c2fc", "id": "HOXB13", "label": "HOXB13", "shape": "dot"}, {"color": "#97c2fc", "id": "PARP1", "label": "PARP1", "shape": "dot"}, {"color": "#97c2fc", "id": "Drug-Related Side Effects and Adverse Reactions", "label": "Drug-Related Side Effects and Adverse Reactions", "shape": "dot"}, {"color": "#97c2fc", "id": "KCNQ4", "label": "KCNQ4", "shape": "dot"}, {"color": "#97c2fc", "id": "TSG101", "label": "TSG101", "shape": "dot"}, {"color": "#97c2fc", "id": "Melanoma", "label": "Melanoma", "shape": "dot"}, {"color": "#97c2fc", "id": "GPHA2", "label": "GPHA2", "shape": "dot"}, {"color": "#97c2fc", "id": "IL27", "label": "IL27", "shape": "dot"}, {"color": "#97c2fc", "id": "Small Cell Lung Carcinoma", "label": "Small Cell Lung Carcinoma", "shape": "dot"}, {"color": "#97c2fc", "id": "TRH", "label": "TRH", "shape": "dot"}, {"color": "#97c2fc", "id": "Bone Neoplasms", "label": "Bone Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "Erectile Dysfunction", "label": "Erectile Dysfunction", "shape": "dot"}, {"color": "#97c2fc", "id": "IFNA1", "label": "IFNA1", "shape": "dot"}, {"color": "#97c2fc", "id": "AKT1", "label": "AKT1", "shape": "dot"}, {"color": "#97c2fc", "id": "Rectal Neoplasms", "label": "Rectal Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "Paraplegia", "label": "Paraplegia", "shape": "dot"}, {"color": "#97c2fc", "id": "Airway Obstruction", "label": "Airway Obstruction", "shape": "dot"}, {"color": "#97c2fc", "id": "Fanconi Anemia", "label": "Fanconi Anemia", "shape": "dot"}, {"color": "#97c2fc", "id": "LEP", "label": "LEP", "shape": "dot"}, {"color": "#97c2fc", "id": "CDKN2B", "label": "CDKN2B", "shape": "dot"}, {"color": "#97c2fc", "id": "VEGFA", "label": "VEGFA", "shape": "dot"}, {"color": "#97c2fc", "id": "Breast Neoplasms, Male", "label": "Breast Neoplasms, Male", "shape": "dot"}, {"color": "#97c2fc", "id": "Pain", "label": "Pain", "shape": "dot"}, {"color": "#97c2fc", "id": "MTOR", "label": "MTOR", "shape": "dot"}, {"color": "#97c2fc", "id": "Prostatic Diseases", "label": "Prostatic Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Prostatic Intraepithelial Neoplasia", "label": "Prostatic Intraepithelial Neoplasia", "shape": "dot"}, {"color": "#97c2fc", "id": "Ascorbic Acid", "label": "Ascorbic Acid", "shape": "dot"}, {"color": "#97c2fc", "id": "TNFSF11", "label": "TNFSF11", "shape": "dot"}, {"color": "#97c2fc", "id": "GADD45B", "label": "GADD45B", "shape": "dot"}, {"color": "#97c2fc", "id": "SIRT1", "label": "SIRT1", "shape": "dot"}, {"color": "#97c2fc", "id": "Sarcopenia", "label": "Sarcopenia", "shape": "dot"}, {"color": "#97c2fc", "id": "IL27RA", "label": "IL27RA", "shape": "dot"}, {"color": "#97c2fc", "id": "Dementia", "label": "Dementia", "shape": "dot"}, {"color": "#97c2fc", "id": "Fish Oils", "label": "Fish Oils", "shape": "dot"}, {"color": "#97c2fc", "id": "CCR2", "label": "CCR2", "shape": "dot"}, {"color": "#97c2fc", "id": "MAPK1", "label": "MAPK1", "shape": "dot"}, {"color": "#97c2fc", "id": "RB1", "label": "RB1", "shape": "dot"}, {"color": "#97c2fc", "id": "Colorectal Neoplasms, Hereditary Nonpolyposis", "label": "Colorectal Neoplasms, Hereditary Nonpolyposis", "shape": "dot"}, {"color": "#97c2fc", "id": "PTK2", "label": "PTK2", "shape": "dot"}, {"color": "#97c2fc", "id": "Liver Failure", "label": "Liver Failure", "shape": "dot"}, {"color": "#97c2fc", "id": "HBEGF", "label": "HBEGF", "shape": "dot"}, {"color": "#97c2fc", "id": "rs9282858", "label": "rs9282858", "shape": "dot"}, {"color": "#97c2fc", "id": "Communicable Diseases", "label": "Communicable Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Hyperkinesis", "label": "Hyperkinesis", "shape": "dot"}, {"color": "#97c2fc", "id": "Sleep Initiation and Maintenance Disorders", "label": "Sleep Initiation and Maintenance Disorders", "shape": "dot"}, {"color": "#97c2fc", "id": "Nervous System Diseases", "label": "Nervous System Diseases", "shape": "dot"}, {"color": "#97c2fc", "id": "Denosumab", "label": "Denosumab", "shape": "dot"}, {"color": "#97c2fc", "id": "Mastocytosis, Systemic", "label": "Mastocytosis, Systemic", "shape": "dot"}, {"color": "#97c2fc", "id": "Leukemia", "label": "Leukemia", "shape": "dot"}, {"color": "#97c2fc", "id": "Hemorrhage", "label": "Hemorrhage", "shape": "dot"}, {"color": "#97c2fc", "id": "INS", "label": "INS", "shape": "dot"}, {"color": "#97c2fc", "id": "Osteoporosis", "label": "Osteoporosis", "shape": "dot"}, {"color": "#97c2fc", "id": "PROM1", "label": "PROM1", "shape": "dot"}, {"color": "#97c2fc", "id": "rs2066479", "label": "rs2066479", "shape": "dot"}, {"color": "#97c2fc", "id": "Cholesterol", "label": "Cholesterol", "shape": "dot"}, {"color": "#97c2fc", "id": "PCA3", "label": "PCA3", "shape": "dot"}, {"color": "#97c2fc", "id": "Skin Neoplasms", "label": "Skin Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "IL6", "label": "IL6", "shape": "dot"}, {"color": "#97c2fc", "id": "Breast Neoplasms", "label": "Breast Neoplasms", "shape": "dot"}, {"color": "#97c2fc", "id": "GNRH1", "label": "GNRH1", "shape": "dot"}, {"color": "#97c2fc", "id": "Seizures", "label": "Seizures", "shape": "dot"}, {"color": "#97c2fc", "id": "CP", "label": "CP", "shape": "dot"}, {"color": "#97c2fc", "id": "Glutathione", "label": "Glutathione", "shape": "dot"}, {"color": "#97c2fc", "id": "Scleroderma, Localized", "label": "Scleroderma, Localized", "shape": "dot"}, {"color": "#97c2fc", "id": "Chronic Disease", "label": "Chronic Disease", "shape": "dot"}, {"color": "#97c2fc", "id": "Coronary Artery Disease", "label": "Coronary Artery Disease", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "Neoplasms", "to": "Prostatic Neoplasms", "type": "defined"}, {"from": "Prostatic Hyperplasia", "to": "Prostatic Neoplasms", "type": "defined"}, {"from": "LEP", "to": "Prostatic Neoplasms", "type": "associate"}, {"from": "Death", "to": "Prostatic Neoplasms", "type": "increase"}, {"from": "NPEPPS", "to": "Prostatic Neoplasms", "type": "increase"}, {"from": "CP", "to": "Prostatic Neoplasms", "type": "increase"}, {"from": "IGFBP2", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "AR", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "Prostatic Diseases", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "Precancerous Conditions", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "HBEGF", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "HOXC13", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "SATB1", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "Paraplegia", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "PCA3", "to": "Prostatic Neoplasms", "type": "include"}, {"from": "SIRT1", "to": "Prostatic Neoplasms", "type": "develop"}, {"from": "Spinal Cord Injuries", "to": "Prostatic Neoplasms", "type": "develop"}, {"from": "Prostatic Intraepithelial Neoplasia", "to": "Prostatic Neoplasms", "type": "develop"}, {"from": "Hypophosphatemia", "to": "Prostatic Neoplasms", "type": "develop"}, {"from": "Diabetes Mellitus", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "HIV Infections", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Inflammation", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Drug-Related Side Effects and Adverse Reactions", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Obesity", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Metabolic Syndrome", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Atherosclerosis", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "KL", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Pain", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "INS", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Dementia", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Coronary Artery Disease", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Sleep Initiation and Maintenance Disorders", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Nervous System Diseases", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Breast Neoplasms", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Fat Necrosis", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Fractures, Bone", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Periodontal Diseases", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "KLK3", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "IL6", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "WRN", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Prostatitis", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Carcinogenesis", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Hypercholesterolemia", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Ascorbic Acid", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "CTTN", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "VDR", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Urolithiasis", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Erectile Dysfunction", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Liver Neoplasms", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "GSTP1", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "CCR5", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "IFNA1", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "CXCL5", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "CYP3A4", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "HOXB13", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "KCNQ4", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "SPOP", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "GJB1", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "Fish Oils", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "rs9282858", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "rs138213197", "to": "Prostatic Neoplasms", "type": "associated"}, {"from": "MTOR", "to": "Prostatic Neoplasms", "type": "reduce"}, {"from": "Periodontitis", "to": "Prostatic Neoplasms", "type": "prevent"}, {"from": "Skin Diseases", "to": "Prostatic Neoplasms", "type": "result"}, {"from": "PER2", "to": "Prostatic Neoplasms", "type": "result"}, {"from": "AKT1", "to": "Prostatic Neoplasms", "type": "induce"}, {"from": "Glutathione", "to": "Prostatic Neoplasms", "type": "identified"}, {"from": "AMACR", "to": "Prostatic Neoplasms", "type": "identified"}, {"from": "Airway Obstruction", "to": "Prostatic Neoplasms", "type": "caused"}, {"from": "GLI1", "to": "Prostatic Neoplasms", "type": "caused"}, {"from": "ADIPOQ", "to": "Prostatic Neoplasms", "type": "underlie"}, {"from": "Carcinoma, Merkel Cell", "to": "Prostatic Neoplasms", "type": "affect"}, {"from": "INHBE", "to": "Prostatic Neoplasms", "type": "affect"}, {"from": "PROM1", "to": "Prostatic Neoplasms", "type": "observed"}, {"from": "Hypogonadism", "to": "Prostatic Neoplasms", "type": "reported"}, {"from": "Aneuploidy", "to": "Prostatic Neoplasms", "type": "reported"}, {"from": "NUAK2", "to": "Prostatic Neoplasms", "type": "evaluate"}, {"from": "rs1801195", "to": "Prostatic Neoplasms", "type": "evaluate"}, {"from": "Hyperplasia", "to": "Prostatic Neoplasms", "type": "show"}, {"from": "GRHL2", "to": "Prostatic Neoplasms", "type": "show"}, {"from": "NOTCH1", "to": "Prostatic Neoplasms", "type": "identify"}, {"from": "SPON2", "to": "Prostatic Neoplasms", "type": "identify"}, {"from": "SSX2", "to": "Prostatic Neoplasms", "type": "identify"}, {"from": "Neoplasm Invasiveness", "to": "Prostatic Neoplasms", "type": "detected"}, {"from": "Adenomatous Polyposis Coli", "to": "Prostatic Neoplasms", "type": "detected"}, {"from": "Osteoporosis", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "TP53", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "PTEN", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "RB1", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "Bone Diseases, Metabolic", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "ATF3", "to": "Prostatic Neoplasms", "type": "found"}, {"from": "FOXO1", "to": "Prostatic Neoplasms", "type": "contribute"}, {"from": "PRL", "to": "Prostatic Neoplasms", "type": "determined"}, {"from": "CXCL12", "to": "Prostatic Neoplasms", "type": "determined"}, {"from": "Osteoporotic Fractures", "to": "Prostatic Neoplasms", "type": "compare"}, {"from": "Urinary Incontinence", "to": "Prostatic Neoplasms", "type": "compare"}, {"from": "Neutropenia", "to": "Prostatic Neoplasms", "type": "occur"}, {"from": "Skin Neoplasms", "to": "Prostatic Neoplasms", "type": "occur"}, {"from": "Muscular Atrophy", "to": "Prostatic Neoplasms", "type": "occur"}, {"from": "IGFBP7", "to": "Prostatic Neoplasms", "type": "be_in"}, {"from": "MECP2", "to": "Prostatic Neoplasms", "type": "confer"}, {"from": "Neoplasm Metastasis", "to": "Prostatic Neoplasms", "type": "cause"}, {"from": "Fanconi Anemia", "to": "Prostatic Neoplasms", "type": "cause"}, {"from": "CCL2", "to": "Prostatic Neoplasms", "type": "become"}, {"from": "Renal Insufficiency", "to": "Prostatic Neoplasms", "type": "diagnosed"}, {"from": "Scleroderma, Localized", "to": "Prostatic Neoplasms", "type": "diagnosed"}, {"from": "Leprosy, Lepromatous", "to": "Prostatic Neoplasms", "type": "diagnosed"}, {"from": "SOD2", "to": "Prostatic Neoplasms", "type": "represent"}, {"from": "GPX1", "to": "Prostatic Neoplasms", "type": "represent"}, {"from": "PLAG1", "to": "Prostatic Neoplasms", "type": "display"}, {"from": "Glucose", "to": "Prostatic Neoplasms", "type": "promote"}, {"from": "NR2C2", "to": "Prostatic Neoplasms", "type": "promote"}, {"from": "CCL7", "to": "Prostatic Neoplasms", "type": "involved"}, {"from": "MIR455", "to": "Prostatic Neoplasms", "type": "implicated"}, {"from": "Colorectal Neoplasms, Hereditary Nonpolyposis", "to": "Prostatic Neoplasms", "type": "implicated"}, {"from": "PARP9", "to": "Prostatic Neoplasms", "type": "analyzed"}, {"from": "DTX3L", "to": "Prostatic Neoplasms", "type": "analyzed"}, {"from": "PARP14", "to": "Prostatic Neoplasms", "type": "analyzed"}, {"from": "PIM1", "to": "Prostatic Neoplasms", "type": "increased"}, {"from": "TNF", "to": "Prostatic Neoplasms", "type": "examine"}, {"from": "CXCR4", "to": "Prostatic Neoplasms", "type": "expressed"}, {"from": "Infections", "to": "Prostatic Neoplasms", "type": "appear"}, {"from": "HSD17B3", "to": "Prostatic Neoplasms", "type": "investigate"}, {"from": "rs2066479", "to": "Prostatic Neoplasms", "type": "investigate"}, {"from": "NKX3-1", "to": "Prostatic Neoplasms", "type": "predispose"}, {"from": "IGF2", "to": "Prostatic Neoplasms", "type": "serve"}, {"from": "FOXA1", "to": "Prostatic Neoplasms", "type": "overexpressed"}, {"from": "FOLH1", "to": "Prostatic Neoplasms", "type": "overexpressed"}, {"from": "Lung Neoplasms", "to": "Prostatic Neoplasms", "type": "rank"}, {"from": "Sarcopenia", "to": "Prostatic Neoplasms", "type": "quantify"}, {"from": "Colorectal Neoplasms", "to": "Prostatic Neoplasms", "type": "function"}, {"from": "Cutaneous Fistula", "to": "Prostatic Neoplasms", "type": "perform"}, {"from": "Seizures", "to": "Prostatic Neoplasms", "type": "regain"}, {"from": "Bone Neoplasms", "to": "Prostatic Neoplasms", "type": "originate"}, {"from": "ARNTL", "to": "Prostatic Neoplasms", "type": "upregulated"}, {"from": "CLOCK", "to": "Prostatic Neoplasms", "type": "upregulated"}, {"from": "PARP1", "to": "Prostatic Neoplasms", "type": "discriminate"}, {"from": "TSG101", "to": "Prostatic Neoplasms", "type": "released"}, {"from": "CCR2", "to": "Prostatic Neoplasms", "type": "play_role_in"}, {"from": "IL27", "to": "Prostatic Neoplasms", "type": "exploited"}, {"from": "GADD45B", "to": "Prostatic Neoplasms", "type": "be_elevated_in"}, {"from": "Hyperkinesis", "to": "Prostatic Neoplasms", "type": "sensitize"}, {"from": "Glucose Metabolism Disorders", "to": "Prostatic Neoplasms", "type": "exploit"}, {"from": "TRH", "to": "Prostatic Neoplasms", "type": "orchidectomised"}, {"from": "Prostatic Neoplasms", "to": "Urinary Bladder Diseases", "type": "defined"}, {"from": "Prostatic Neoplasms", "to": "MAPK1", "type": "include"}, {"from": "Prostatic Neoplasms", "to": "CCND1", "type": "include"}, {"from": "Prostatic Neoplasms", "to": "Thyroid Neoplasms", "type": "develop"}, {"from": "Prostatic Neoplasms", "to": "Small Cell Lung Carcinoma", "type": "managed"}, {"from": "Prostatic Neoplasms", "to": "Denosumab", "type": "prevent"}, {"from": "Prostatic Neoplasms", "to": "GPHA2", "type": "result"}, {"from": "Prostatic Neoplasms", "to": "Sexual Dysfunction, Physiological", "type": "improve"}, {"from": "Prostatic Neoplasms", "to": "Gynecomastia", "type": "induce"}, {"from": "Prostatic Neoplasms", "to": "GNRH1", "type": "treated"}, {"from": "Prostatic Neoplasms", "to": "Urinary Bladder Neoplasms", "type": "followed"}, {"from": "Prostatic Neoplasms", "to": "Leukoencephalopathies", "type": "present"}, {"from": "Prostatic Neoplasms", "to": "Cholesterol", "type": "lead"}, {"from": "Prostatic Neoplasms", "to": "Respiratory Distress Syndrome", "type": "lead"}, {"from": "Prostatic Neoplasms", "to": "Heart Arrest", "type": "induced"}, {"from": "Prostatic Neoplasms", "to": "Communicable Diseases", "type": "identify"}, {"from": "Prostatic Neoplasms", "to": "Oculocerebrorenal Syndrome", "type": "classified"}, {"from": "Prostatic Neoplasms", "to": "Alopecia", "type": "examined"}, {"from": "Prostatic Neoplasms", "to": "Mastocytosis, Systemic", "type": "prove"}, {"from": "Prostatic Neoplasms", "to": "CD4", "type": "occur"}, {"from": "Prostatic Neoplasms", "to": "Uniparental Disomy", "type": "detect"}, {"from": "Prostatic Neoplasms", "to": "Carcinoma, Hepatocellular", "type": "become"}, {"from": "Prostatic Neoplasms", "to": "Breast Neoplasms, Male", "type": "become"}, {"from": "Prostatic Neoplasms", "to": "Heart Failure", "type": "diagnosed"}, {"from": "Prostatic Neoplasms", "to": "Rectal Neoplasms", "type": "diagnosed"}, {"from": "Prostatic Neoplasms", "to": "Cardiovascular Diseases", "type": "suffer"}, {"from": "Prostatic Neoplasms", "to": "Heart Diseases", "type": "exacerbate"}, {"from": "Prostatic Neoplasms", "to": "Postpartum Hemorrhage", "type": "avoid"}, {"from": "Prostatic Neoplasms", "to": "CDKN2B", "type": "mediate"}, {"from": "Prostatic Neoplasms", "to": "VEGFA", "type": "impair"}, {"from": "Prostatic Neoplasms", "to": "Urinary Bladder Neck Obstruction", "type": "evaluated"}, {"from": "Prostatic Neoplasms", "to": "Arthritis, Rheumatoid", "type": "start"}, {"from": "Prostatic Neoplasms", "to": "Leukemia", "type": "start"}, {"from": "Prostatic Neoplasms", "to": "Adenocarcinoma", "type": "distinguish"}, {"from": "Prostatic Neoplasms", "to": "Salivary Gland Diseases", "type": "affected"}, {"from": "Prostatic Neoplasms", "to": "Liver Failure", "type": "focus"}, {"from": "Prostatic Neoplasms", "to": "Respiratory Tract Infections", "type": "need"}, {"from": "Prostatic Neoplasms", "to": "Melanoma", "type": "range"}, {"from": "Prostatic Neoplasms", "to": "Chronic Disease", "type": "suited"}, {"from": "Prostatic Neoplasms", "to": "Hemorrhage", "type": "masked"}, {"from": "Prostatic Neoplasms", "to": "TNFSF11", "type": "approve"}, {"from": "Prostatic Neoplasms", "to": "IL27RA", "type": "exploited"}, {"from": "Prostatic Neoplasms", "to": "PTK2", "type": "down_regulate"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "repulsion": {
+            "centralGravity": 0.2,
+            "damping": 0.09,
+            "nodeDistance": 100,
+            "springConstant": 0.05,
+            "springLength": 200
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
