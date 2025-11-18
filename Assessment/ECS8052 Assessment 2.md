@@ -37,11 +37,14 @@ This assignment continues from Assignment 1. You may freely use any code or resu
 
 ## Deliverables
 
-You should submit the following files packaged in a single `zip` file:
+You should submit **ONLY** the following files packaged in a single `zip` file:
 
 1. A single Jupyter notebook containing all of the code needed to reproduce your results together with explanations of your methods and analysis and discussion of your results.
-3. A `requirements.txt` file that can be used to recreate your environment.
-4. A five-minute video recording in which you briefly present your work.
+3. A `requirements.txt` or equivalent YAML file that can be used to recreate your environment.
+4. Any files required to run your code that were not included in the downloaded data (for example, a RDF file generated as part of Assignment 1).
+5. A five-minute video recording in which you briefly present your work.
+
+There must not be any folders within the zip file. You must not include a copy of the data.
 
 These files should be named, respectively:
 
@@ -63,6 +66,7 @@ Your notebook should cover all aspects of the assignment. In particular it shoul
 For each part, your solution should demonstrate your understanding of the task, of the methods used, and of the technical details of the solution. You should present your results using graphical visualisations and/or tables where appropriate, and provide your interpretation of the results. Your submission should contain 
 
 Your submission should:
+
 * Demonstrate your understanding of the task and of the methods you have used to solve it.
 * Explain any decisions or choices you have made, justifying these with reference to external sources if appropriate.
 * Provide your interpretation of the results and finding.
@@ -93,7 +97,10 @@ You must include a `requirements.txt` file (noting the naming requirement listed
 
 To test and evaluate your code, the assessors will create a new Python virtual environment for each submission and install the required dependencies using the command `conda create --name test-env -file requirements.txt`. Please ensure that this works before submission.
 
-* Your code should assume that the data files will be in `../data/` relative to the notebook to ensure that this notebook can be run easily.
+* Your code **MUST** assume that the data files will be in `../data/*.tsv` relative to the notebook to ensure that the notebook can be run easily. 
+
+* **DO NOT INCLUDE A COPY OF THE DATA FILES downloaded from Canvas.**
+
 
 **Submissions that do not meet these criteria and thus cannot be easily executed will be deemed to not run and will be subjct to a 20 mark deduction**
 
@@ -116,4 +123,4 @@ For each part, marks will be allocated in the following proportions
 | Evaluation and analysis of results and findings    | 3/10 |
 | Quality, clarity, and efficiency of code           | 2/10 |
 
-**Submissions that include non-running code (after installing necessary dependencies from `requirements.txt`) will receive a 20 mark deduction.**
+**Submissions that include non-running code (after installing necessary dependencies from `requirements.txt` or equivalent `YAML` file) will receive a 20 mark deduction.**
